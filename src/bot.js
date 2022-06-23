@@ -1,4 +1,4 @@
-const { Client, Intents, Collection, DiscordAPIError } = require('discord.js');
+const { Client, Intents, Collection } = require('discord.js');
 const fs = require('fs');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
@@ -8,7 +8,7 @@ require('dotenv').config();
 
 const functions = fs.readdirSync("./src/functions").filter(file => file.endsWith(".js"));
 const eventFiles = fs.readdirSync("./src/events").filter(file => file.endsWith(".js"));
-const commandFolders = fs.readdirSync("./src/commands")
+const commandFolders = fs.readdirSync("./src/commands");
 
 (async () => {
     for (file of functions) {
